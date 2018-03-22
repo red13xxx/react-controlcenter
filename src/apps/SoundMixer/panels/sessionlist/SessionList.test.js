@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Test3 from './Test3';
+import SessionList from './SessionList';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Test3 />, div);
+  ReactDOM.render(<SessionList />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

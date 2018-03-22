@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import {BottomNavigation, BottomNavigationItem} from 'material-ui/BottomNavigation';
 import Paper from 'material-ui/Paper';
-
 import {withRouter} from 'react-router-dom';
+
 
 import './Footer.css';
 
@@ -21,7 +21,8 @@ class Footer extends Component {
                 <BottomNavigationItem
                     label={app.Label}
                     icon={app.IconComponent}
-                    onClick={() => this.navigate(app.Path, i)}/>
+                    onClick={() => this.navigate(app.Path, i)}
+                    key={i}/>
             );
         }
     );

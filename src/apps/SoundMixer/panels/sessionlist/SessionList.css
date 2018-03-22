@@ -1,0 +1,8 @@
+.sessionlist {
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  -webkit-scrollbar: none;
+  height: 100%; }

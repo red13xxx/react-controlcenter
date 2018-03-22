@@ -25,12 +25,10 @@ class App extends Component {
     render() {
         return (
             <MuiThemeProvider>
-                <div>
-                    <main>
-                        <Switch>
-                            {this.routes}
-                        </Switch>
-                    </main>
+                <div className="app">
+                    <Switch>
+                        {this.routes}
+                    </Switch>
                     <Footer apps={apps}/>
                 </div>
             </MuiThemeProvider>

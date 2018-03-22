@@ -1,17 +1,43 @@
 import React, {Component} from 'react';
-import {RaisedButton} from "material-ui";
 import {FontIcon} from "material-ui";
+import axios from 'axios';
 
 import './SoundMixer.css';
 import AppModel from "../../model/AppModel";
+import SessionList from "./panels/sessionlist/SessionList";
+import Mixer from "./panels/mixer/Mixer";
 
 const icon = <FontIcon className="material-icons">volume_up</FontIcon>;
 
 class SoundMixer extends Component {
+
+    componentDidMount() {
+        axios.get("http://localhost:9096/devices").then(((json) => {
+            this.setState({devices: json.data});
+        }).bind(this));
+    }
+
+    state = {
+        devices: [],
+        selectedDevice: 0
+    }
+
+    getSelectedDevice(){
+        return this.state.devices[this.state.selectedDevice];
+    }
+
     render() {
-        return (
-            <RaisedButton label={"SoundMixer"} />
-        );
+        if(this.state.devices && this.state.devices.length > 0){
+            return (
+                <main className="soundmixer">
+                    <Mixer label={this.getSelectedDevice().FriendlyName} volume={this.getSelectedDevice().Volume}/>
+                    <SessionList device={this.getSelectedDevice().ExternalId}/>
+                </main>
+            );
+        }
+        else {
+            return <main className="soundmixer" />;
+        }
     };
 }
 
