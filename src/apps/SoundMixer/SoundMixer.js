@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {FontIcon} from "material-ui";
 import axios from 'axios';
 
-import password from "password";
+import password from "/password";
 import './SoundMixer.css';
 import AppModel from "../../model/AppModel";
 import SessionList from "./panels/sessionlist/SessionList";
