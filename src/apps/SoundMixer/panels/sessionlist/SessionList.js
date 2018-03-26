@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {PropTypes} from 'prop-types';
 
-import password from "/password";
+import password from "src/password";
 import './SessionList.css'
 import Mixer from "../mixer/Mixer";
 import axios from 'axios';
