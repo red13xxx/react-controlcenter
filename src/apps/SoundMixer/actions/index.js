@@ -1,5 +1,5 @@
 import axios from "axios";
-import password from "../password"
+import {username, password} from "../password"
 
 export const REQUEST_DEVICES = "REQUEST_DEVICES";
 function requestDevices() {
@@ -72,7 +72,7 @@ export function muteSession(deviceId, sessionId, mute) {
     return function (dispatch) {
         return axios.post("https://niklasm-pc:9993/devices/"+deviceId+"/sessions/"+sessionId+"/mute", mute, {
             auth: {
-                username: "niklas.mohrdieck@outlook.de",
+                username: username,
                 password: password
             }
         }).then((json) => {
@@ -88,7 +88,7 @@ export function fetchDevices() {
 
         return axios.get("https://niklasm-pc:9993/devices", {
             auth: {
-                username: "niklas.mohrdieck@outlook.de",
+                username: username,
                 password: password
             }
         }).then(((json) => {
@@ -104,7 +104,7 @@ export function fetchSessions(deviceId){
 
         return axios.get("https://niklasm-pc:9993/devices/"+deviceId+"/sessions", {
             auth: {
-                username: "niklas.mohrdieck@outlook.de",
+                username: username,
                 password: password
             }
         }).then(((json) => {

@@ -1,35 +1,41 @@
-import React from 'react'
+import React, {Component} from 'react';
 import {PropTypes} from 'prop-types';
 
 import './Device.css';
 
-const renderDeviceList = (devices, onSelectItem) => {
-    let arr = [];
-    for(const key in devices){
-        arr.push(devices[key]);
+class Device extends Component {
+
+    renderDeviceList(devices, onSelectItem){
+        let arr = [];
+        for (const key in devices) {
+            arr.push(devices[key]);
+        }
+        return arr.map((device) => (
+            <li
+                key={device.ExternalId}
+                onClick={() => {
+                    onSelectItem(device.ExternalId)
+                }}>
+                {device.FriendlyName}
+            </li>
+        ));
     }
-    return arr.map((device) => (
-        <li
-            key={device.ExternalId}
-            onClick={() => {onSelectItem(device.ExternalId)}}>
-            {device.FriendlyName}
-        </li>
-    ))
+
+    render() {
+        const device = this.props.deviceList.devices[this.props.selectedDevice];
+        let label = "Not selected";
+        if (device) {
+            label = device.FriendlyName;
+        }
+
+        return (
+            <div className="mixer">
+                Label: {label}<br/>
+                {this.renderDeviceList(this.props.deviceList.devices, this.props.onSelect)}
+            </div>
+        );
+    }
 }
-
-const Device = ({selectedDevice, deviceList, onSelect}) => {
-    const device = deviceList.devices[selectedDevice];
-    let label = "Not selected";
-    if(device){
-        label = device.FriendlyName;
-    }
-
-    return (
-    <div className="mixer">
-        Label: {label}<br/>
-        {renderDeviceList(deviceList.devices, onSelect)}
-    </div>
-)};
 
 Device.propTypes = {
     selectedDevice: PropTypes.number.isRequired,
