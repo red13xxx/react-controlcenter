@@ -309,4 +309,4 @@ Temporary Items
 # End of https://www.gitignore.io/api/node,intellij,reactnative
 
 
-src/password.js
+src/apps/SoundMixer/password.js

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Switch, Route} from 'react-router-dom'
 
-import SoundMixer from '../../apps/SoundMixer/SoundMixer';
+import SoundMixer from '../../apps/SoundMixer';
 import Test1 from '../../apps/Test1/Test1';
 import Footer from '../footer/Footer';
 import './App.css';

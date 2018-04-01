@@ -8,16 +8,19 @@ class Mixer extends Component {
         return (
             <div className="mixer">
                 Label: {this.props.label}<br/>
-                Volume: {this.props.volume}
+                Volume: {this.props.volume}<br/>
+                <span onClick={this.props.onMuteClick}>Mute: {this.props.mute}</span>
             </div>
         );
-    };
+    }
 }
 
 Mixer.propTypes = {
     label: PropTypes.string.isRequired,
+    image_url: PropTypes.string.isRequired,
     volume: PropTypes.number.isRequired,
-    onMenuClick: PropTypes.func
+    mute: PropTypes.bool.isRequired,
+    onMuteClick: PropTypes.func.isRequired
 }
 
 export default Mixer;
